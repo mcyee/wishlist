@@ -1,7 +1,13 @@
 from flask import render_template
+from flask_login import login_required, current_user
 from wishlist import app
 
 @app.route('/')
 
-def main():
-    return render_template('index.html')
+def index():
+    return render_template("index.html")
+
+@app.route('/dashboard')
+@login_required
+def account():
+    return render_template("account.html")
