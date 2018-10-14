@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 2018_10_14_033745) do
   create_table "items", force: :cascade do |t|
     t.bigint "claimlist_id"
     t.bigint "wantlist_id"
-    t.string "title"
-    t.text "description"
-    t.boolean "surprise"
+    t.string "title", default: "", null: false
+    t.text "description", default: "", null: false
+    t.boolean "surprise", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["claimlist_id"], name: "index_items_on_claimlist_id"
