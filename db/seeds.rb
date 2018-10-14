@@ -18,3 +18,5 @@ def seed_users
     user_id = user_id + 1
   end
 end
+
+seed_users
