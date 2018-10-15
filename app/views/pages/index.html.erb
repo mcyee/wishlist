@@ -1,23 +1,21 @@
-<div class="container">
-  <h1>User List</h1>
+<h1>User List</h1>
 
-  <% @users.in_groups_of(3, false).each do |user_group| %>
-    <div class="row card-row">
-      <% for user in user_group %>
-        <div class="col-sm-4 single-user-card" id=<%= user_path(user.id) %>>
-          <div class="card">
-            <div class="card-block">
-              <h4 class="user-name">
-                <%= truncate(user.name, :length => 60) %>
-              </h4>
-              <div class="user-content">
-                <p><%= user.email %></p>
-                <p>View wishlist</p>
-              </div>
+<% @users.in_groups_of(3, false).each do |user_group| %>
+  <div class="row card-row">
+    <% for user in user_group %>
+      <div class="col-sm-4 single-user-card" id=<%= user_path(user.id) %>>
+        <div class="card">
+          <div class="card-block">
+            <h4 class="user-name">
+              <%= truncate(user.name, :length => 60) %>
+            </h4>
+            <div class="user-content">
+              <p><%= user.email %></p>
+              <p><%= link_to 'View wishlist', user_path(user.id) %></p>
             </div>
-          </div><!-- card -->
-        </div><!-- col-sm-3 -->
-      <% end # user_group %>
-    </div><!-- row -->
-  <% end # @users %>
-</div>
+          </div>
+        </div><!-- card -->
+      </div><!-- col-sm-3 -->
+    <% end # user_group %>
+  </div><!-- row -->
+<% end # @users %>
