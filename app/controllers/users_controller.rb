@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @claimlist = @user.claimlist
     @wantlist = @user.wantlist
   end
 end
