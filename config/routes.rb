@@ -5,10 +5,9 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
-  end
-
-  devise_scope :user do
-    get 'signup', to: 'devise/registrations#new'
+    post 'signup', to: 'devise/registrations#new'
+    delete 'logout', to: 'devise/sessions#destroy'
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
   resources :users do
