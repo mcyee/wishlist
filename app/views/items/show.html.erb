@@ -1,0 +1,9 @@
+<h1>Edit item</h1>
+
+<%= form_for @item, url: { action: "update" }, html: { class: 'edit-item-form' } do |f| %>
+  <%= f.hidden_field :id %>
+  <%= f.hidden_field :claimlist_id %>
+  <%= f.text_field :title %>
+  <%= f.text_area :description, size: "30x5" %>
+  <%= f.submit 'Update item' %>
+<% end %>

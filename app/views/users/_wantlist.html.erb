@@ -1,6 +1,39 @@
 <div class="list">
   <h2>Wishlist</h2>
-  <% for item in @wantlist.items %>
-    <p><%= item.title %>: <%= item.description %></p>
-  <% end %>
+  <% # if @wantlist.length > 0 %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% for item in @wantlist.items %>
+          <tr>
+            <td><%= item.title %></td>
+            <td><%= item.description %></td>
+            <td>
+            <% if current_user?(@user) %>
+              <%= link_to 'Edit item', item_path(item.id) %>
+              <%= button_to 'Delete item', item, :method => :delete %>
+            <% elsif current_user %>
+              CLAIM TODO
+            <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% #else %>
+    <% if current_user?(@user) %>
+      <p>There's nothing here! Try <% link_to 'adding an item', new_item_path %>!</p>
+    <% else %>
+      <p>There's nothing here! Come back later.</p>
+    <% end %>
+  <% #end %>
+
+  CREATE TODO
 </div>

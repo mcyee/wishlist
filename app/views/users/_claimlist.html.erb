@@ -1,6 +1,22 @@
 <div class="list">
   <h2>Claimlist</h2>
-  <% for item in @claimlist.items %>
-    <p><%= item.title %>: <%= item.description %></p>
-  <% end %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% for item in @claimlist.items %>
+      <tr>
+        <td><%= item.title %></td>
+        <td><%= item.description %></td>
+        <td>UNCLAIM TODO</td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>

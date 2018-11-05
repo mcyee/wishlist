@@ -7,5 +7,5 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @claimlist = @user.claimlist
     @wantlist = @user.wantlist
-  end
+ end
 end
