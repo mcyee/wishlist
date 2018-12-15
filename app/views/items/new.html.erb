@@ -1,0 +1,10 @@
+<h1>Create item</h1>
+
+<%= params.inspect %>
+
+<%= form_for @item, url: { action: 'create' }, html: { class: 'new-item-form' } do |f| %>
+  <%= hidden_field_tag :wantlist_id, @wantlist %>
+  <%= f.text_field :title %>
+  <%= f.text_area :description, size: '30x5' %>
+  <%= f.submit 'Create item' %>
+<% end %>
